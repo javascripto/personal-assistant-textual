@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-.PHONY: help install lint format test check run seed clear record-demo
+.PHONY: help install lint format test check run seed clear record-demo play-demo
 
 help: ## Lista os comandos disponíveis.
 
@@ -49,3 +49,7 @@ clear: ## Remove somente caches e relatórios gerados; preserva SQLite e exports
 record-demo: ## Gera a demonstração asciinema em docs/recordings/.
 
 	expect scripts/record_demo.expect
+
+play-demo: ## Reproduz a demonstração asciinema no terminal.
+
+	asciinema play docs/recordings/personal-assistant-demo.cast

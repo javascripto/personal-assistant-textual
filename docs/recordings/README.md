@@ -9,7 +9,7 @@ Para reproduzir localmente, instale `asciinema` e `expect`, então execute:
 
 ```sh
 make record-demo
-asciinema play docs/recordings/personal-assistant-demo.cast
+make play-demo
 ```
 
 O roteiro em `scripts/record_demo.expect` cria e remove seu próprio diretório

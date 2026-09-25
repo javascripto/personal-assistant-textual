@@ -20,7 +20,7 @@ Ela percorre os comandos do Makefile e as funções centrais da TUI em uma base
 temporária, sem modificar os dados locais. Para assisti-la:
 
 ```sh
-asciinema play docs/recordings/personal-assistant-demo.cast
+make play-demo
 ```
 
 O comando `make record-demo` recria a gravação quando `asciinema` e `expect`
