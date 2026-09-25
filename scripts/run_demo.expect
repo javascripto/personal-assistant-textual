@@ -20,13 +20,6 @@ pause
 send -- "cd $project_dir\r"
 pause
 send -- "clear\r"
-pause
-send -- "make help\r"
-after 1500
-send -- "make format\r"
-after 2000
-send -- "make check\r"
-after 8000
 
 # Run in an empty directory so only temporary demonstration data is created.
 send -- "cd $demo_dir && uv run --project $project_dir personal-assistant\r"
@@ -96,6 +89,16 @@ send -- "\r"
 pause
 send -- "q"
 after 1000
+send -- "cd $project_dir\r"
+pause
+send -- "make help\r"
+after 1500
+send -- "make format\r"
+after 2000
+send -- "make check\r"
+after 8000
+send -- "cd $demo_dir\r"
+pause
 send -- "ls -1 exports\r"
 after 1000
 send -- "exit\r"
