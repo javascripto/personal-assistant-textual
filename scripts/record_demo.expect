@@ -1,0 +1,12 @@
+#!/usr/bin/expect -f
+# Record the inner driver output; its keystrokes never reach Asciinema's input.
+
+set timeout 60
+set script_dir [file dirname [file normalize [info script]]]
+set project_dir [file normalize [file join $script_dir ..]]
+set recording [file join $project_dir docs recordings personal-assistant-demo.cast]
+
+spawn asciinema rec --overwrite --idle-time-limit 1 --window-size 100x32 \
+    --title "Personal Assistant TUI walkthrough" \
+    --command "expect $script_dir/run_demo.expect $project_dir" $recording
+expect eof

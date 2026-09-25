@@ -12,6 +12,20 @@ O escopo foi consolidado a partir do chat de implementação fornecido no iníci
 trabalho. A referência visual não é distribuída neste repositório, e o seed usa
 apenas tarefas genéricas anonimizadas.
 
+## Demonstração
+
+Há uma demonstração interativa em
+[`docs/recordings/personal-assistant-demo.cast`](docs/recordings/personal-assistant-demo.cast).
+Ela percorre os comandos do Makefile e as funções centrais da TUI em uma base
+temporária, sem modificar os dados locais. Para assisti-la:
+
+```sh
+asciinema play docs/recordings/personal-assistant-demo.cast
+```
+
+O comando `make record-demo` recria a gravação quando `asciinema` e `expect`
+estiverem instalados. Veja as instruções completas em `docs/recordings/`.
+
 ## Recursos
 
 - SQLite persistente em `data/personal_assistant.db`.

@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-.PHONY: help install lint format test check run seed clear
+.PHONY: help install lint format test check run seed clear record-demo
 
 help: ## Lista os comandos disponíveis.
 
@@ -45,3 +45,7 @@ seed: ## Faz backup e insere tarefas genéricas ausentes no banco SQLite local.
 clear: ## Remove somente caches e relatórios gerados; preserva SQLite e exports.
 
 	rm -rf .mypy_cache .pytest_cache .ruff_cache .coverage coverage.xml htmlcov
+
+record-demo: ## Gera a demonstração asciinema em docs/recordings/.
+
+	expect scripts/record_demo.expect
