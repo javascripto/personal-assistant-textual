@@ -1,0 +1,5 @@
+# Project-level Codex settings.
+#
+# The Codex desktop UI discovers executable project actions from
+# .codex/environments/environment.toml, not from this file.
+# See that file for the Makefile-backed buttons.

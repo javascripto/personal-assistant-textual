@@ -1,0 +1,54 @@
+[project]
+name = "personal-assistant"
+version = "0.1.0"
+description = "Retro task manager TUI built with Textual and SQLite."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "openpyxl>=3.1.5",
+    "textual>=6.6.0",
+]
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.40.1",
+    "black>=26.0.0",
+    "mypy>=1.19.0",
+    "pytest>=9.0.0",
+    "ruff>=0.15.0",
+    "types-openpyxl>=3.1.5.20250919",
+]
+
+[project.scripts]
+personal-assistant = "personal_assistant.app:main"
+personal-assistant-seed = "personal_assistant.seed_cli:main"
+
+[build-system]
+requires = ["uv_build>=0.11.0,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.black]
+line-length = 80
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 80
+target-version = "py312"
+extend-exclude = ["data", "exports"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["personal_assistant"]
+
+[tool.mypy]
+files = ["src", "tests"]
+python_version = "3.12"
+strict = true
+warn_unused_configs = true
+exclude = ["^build/", "^data/", "^exports/"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

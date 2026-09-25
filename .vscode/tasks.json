@@ -1,0 +1,64 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Make: help",
+      "type": "shell",
+      "command": "make help",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make: install",
+      "type": "shell",
+      "command": "make install",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make: lint",
+      "type": "shell",
+      "command": "make lint",
+      "group": "test",
+      "problemMatcher": ["$ruff", "$mypy"]
+    },
+    {
+      "label": "Make: check",
+      "type": "shell",
+      "command": "make check",
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": ["$ruff", "$mypy", "$pytest"]
+    },
+    {
+      "label": "Make: format",
+      "type": "shell",
+      "command": "make format",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make: test",
+      "type": "shell",
+      "command": "make test",
+      "group": "test",
+      "problemMatcher": ["$pytest"]
+    },
+    {
+      "label": "Make: run",
+      "type": "shell",
+      "command": "make run",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make: seed",
+      "type": "shell",
+      "command": "make seed",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make: clear",
+      "type": "shell",
+      "command": "make clear",
+      "problemMatcher": []
+    }
+  ]
+}

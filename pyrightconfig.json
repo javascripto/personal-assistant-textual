@@ -1,0 +1,14 @@
+{
+  "include": ["src", "tests"],
+  "exclude": ["build", "data", "exports"],
+  "venvPath": ".",
+  "venv": ".venv",
+  "pythonVersion": "3.12",
+  "typeCheckingMode": "strict",
+  "reportUnknownArgumentType": "error",
+  "reportUnknownLambdaType": "error",
+  "reportUnknownMemberType": "error",
+  "reportUnknownParameterType": "error",
+  "reportUnknownVariableType": "error",
+  "reportMissingTypeArgument": "error"
+}
