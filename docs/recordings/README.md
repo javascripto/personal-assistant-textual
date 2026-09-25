@@ -3,7 +3,7 @@
 `personal-assistant-demo.cast` é uma gravação Asciinema do uso do Makefile e da
 TUI. Ela executa `make help`, `make format` e `make check` e, em uma base SQLite
 temporária, demonstra ordenação, criação, edição, detalhes, alternância de
-status, navegação por abas, tema, palette, exportação XLSX e exclusão confirmada.
+status, navegação por abas, tema, exportação XLSX e exclusão confirmada.
 
 Para reproduzir localmente, instale `asciinema` e `expect`, então execute:
 
