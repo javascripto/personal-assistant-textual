@@ -44,7 +44,10 @@ RETRO_THEME = Theme(
 class TaskModal(ModalScreen[TaskDraft | None]):
     """Create or edit a task without leaving the keyboard-driven flow."""
 
-    BINDINGS = [Binding("escape", "dismiss_modal", "Voltar", show=False)]
+    BINDINGS = [
+        Binding("escape", "dismiss_modal", "Voltar", show=False),
+        Binding("ctrl+enter", "save", "Confirmar", show=False),
+    ]
 
     def __init__(
         self, title: str = "", tag: str = "tarefa", description: str = ""
@@ -86,6 +89,10 @@ class TaskModal(ModalScreen[TaskDraft | None]):
 
     def action_dismiss_modal(self) -> None:
         self.dismiss(None)
+
+    def action_save(self) -> None:
+        """Confirm a form while the multi-line description has focus."""
+        self._save()
 
     def on_input_submitted(self, event: Input.Submitted) -> None:
         self._save()
@@ -208,6 +215,7 @@ class PersonalAssistant(App[None]):
 
     def __init__(self, database: Database | None = None) -> None:
         super().__init__()
+        self._clock: Static = Static("", id="clock")
         self.database = database or Database()
         self.register_theme(RETRO_THEME)
         saved_theme = self.database.get_setting("theme", RETRO_THEME_NAME)
@@ -228,7 +236,7 @@ class PersonalAssistant(App[None]):
             with Container(id="main-panel"):
                 with Horizontal(id="application-header"):
                     yield Static("Personal Assistant", id="panel-title")
-                    yield Static("", id="clock")
+                    yield self._clock
                 yield Static("", id="order-label")
                 with TabbedContent(initial="all", id="filters"):
                     with TabPane("Todos", id="all"):
@@ -272,9 +280,9 @@ class PersonalAssistant(App[None]):
         self.database.close()
 
     def _update_clock(self) -> None:
-        self.query_one("#clock", Static).update(
-            datetime.now().strftime("%H:%M:%S")
-        )
+        # A timer can fire while the screen is being unmounted.
+        if self._clock.is_mounted:
+            self._clock.update(datetime.now().strftime("%H:%M:%S"))
 
     def current_table(self) -> DataTable[str]:
         tabs = self.query_one("#filters", TabbedContent)

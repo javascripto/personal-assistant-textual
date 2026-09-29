@@ -2,7 +2,7 @@ import asyncio
 from pathlib import Path
 from typing import cast
 
-from textual.containers import Container
+from textual.containers import Container, Horizontal
 from textual.widgets import (
     Button,
     DataTable,
@@ -42,6 +42,19 @@ def test_application_mounts_with_the_retro_task_table(tmp_path: Path) -> None:
     asyncio.run(mount())
 
 
+def test_clock_timer_tolerates_removing_the_header(tmp_path: Path) -> None:
+    app = PersonalAssistant(Database(tmp_path / "assistant.db", seed=False))
+
+    async def remove_header() -> None:
+        async with app.run_test(size=(120, 40)) as pilot:
+            await app.query_one("#application-header", Horizontal).remove()
+            # Let the real interval fire after its target leaves the DOM.
+            await pilot.pause(1.1)
+            assert not app.query("#clock")
+
+    asyncio.run(remove_header())
+
+
 def test_new_and_edit_shortcuts_open_the_confirmable_task_form(
     tmp_path: Path,
 ) -> None:
@@ -78,7 +91,19 @@ def test_new_and_edit_shortcuts_open_the_confirmable_task_form(
                 app.screen.query_one("#task-description", TextArea).text
                 == "Contexto da tarefa existente."
             )
-            await pilot.press("escape")
+            await pilot.press("ctrl+enter")
+
+            await pilot.press("n")
+            app.screen.query_one("#task-title", Input).value = "Nova tarefa"
+            description = app.screen.query_one("#task-description", TextArea)
+            description.load_text("Primeira linha\nSegunda linha")
+            description.focus()
+            await pilot.press("ctrl+enter")
+            assert any(
+                task.title == "Nova tarefa"
+                and task.description == "Primeira linha\nSegunda linha"
+                for task in database.list_tasks()
+            )
 
             assert app.focused is app.query_one("#tasks-all", DataTable)
             await pilot.press("enter")
