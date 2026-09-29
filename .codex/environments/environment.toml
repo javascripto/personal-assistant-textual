@@ -36,3 +36,23 @@ command = "make seed"
 [[actions]]
 name = "Limpar caches"
 command = "make clear"
+
+[[actions]]
+name = "Gerar demo e vídeo"
+command = "make build-demo"
+
+[[actions]]
+name = "Reproduzir demo"
+command = "make play-demo"
+
+[[actions]]
+name = "Renderizar vídeo"
+command = "make render-demo"
+
+[[actions]]
+name = "Validar scripts de demo"
+command = "make demo-check"
+
+[[actions]]
+name = "Gravar manualmente"
+command = "make record-demo"

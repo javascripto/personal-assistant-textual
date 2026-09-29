@@ -1,6 +1,7 @@
 .DEFAULT_GOAL := help
 
 .PHONY: help install lint format test check run seed clear record-demo play-demo
+.PHONY: build-demo render-demo demo-check
 
 help: ## Lista os comandos disponíveis.
 
@@ -46,10 +47,26 @@ clear: ## Remove somente caches e relatórios gerados; preserva SQLite e exports
 
 	rm -rf .mypy_cache .pytest_cache .ruff_cache .coverage coverage.xml htmlcov
 
-record-demo: ## Gera a demonstração asciinema em docs/recordings/.
+record-demo: ## Inicia a gravação interativa em docs/recordings/.
 
-	expect scripts/record_demo.expect
+	asciinema rec --overwrite --idle-time-limit 1 --window-size 100x32 \
+		--title "Personal Assistant TUI walkthrough" \
+		docs/recordings/personal-assistant-demo.cast
 
 play-demo: ## Reproduz a demonstração asciinema no terminal.
 
 	asciinema play docs/recordings/personal-assistant-demo.cast
+
+build-demo: ## Grava a demo validada em base isolada e gera o vídeo MP4.
+
+	uv run --group demo python scripts/capture_demo.py
+	$(MAKE) render-demo
+
+render-demo: ## Converte a captura real em MP4 1080p com capítulos.
+
+	uv run --group demo python scripts/render_demo.py
+
+demo-check: ## Valida os scripts de gravação e renderização com tipos estritos.
+
+	uv run --group demo mypy scripts/*.py
+	uv run --group demo basedpyright scripts/*.py

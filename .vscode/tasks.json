@@ -2,6 +2,36 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Make: build-demo",
+      "type": "shell",
+      "command": "make build-demo",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make: play-demo",
+      "type": "shell",
+      "command": "make play-demo",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make: render-demo",
+      "type": "shell",
+      "command": "make render-demo",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make: demo-check",
+      "type": "shell",
+      "command": "make demo-check",
+      "problemMatcher": []
+    },
+    {
+      "label": "Make: record-demo",
+      "type": "shell",
+      "command": "make record-demo",
+      "problemMatcher": []
+    },
+    {
       "label": "Make: help",
       "type": "shell",
       "command": "make help",

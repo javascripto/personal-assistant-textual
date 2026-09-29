@@ -10,6 +10,12 @@ dependencies = [
 ]
 
 [dependency-groups]
+demo = [
+    "pexpect>=4.9.0",
+    "pillow>=12.3.0",
+    "pyte>=0.8.2",
+    "types-pexpect>=4.9.0.20260518",
+]
 dev = [
     "basedpyright>=1.40.1",
     "black>=26.0.0",

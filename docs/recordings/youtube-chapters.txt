@@ -1,0 +1,10 @@
+00:00 Personal Assistant
+00:11 Criar tarefa com descrição longa
+00:26 Contexto e próximos passos
+00:47 Concluir e reabrir sem perder a seleção
+01:05 Ordenação por data
+01:20 Command palette
+01:33 Exportar todas as tarefas
+01:46 Excluir com confirmação
+02:02 Workflow de desenvolvimento
+02:25 Seed idempotente com backup

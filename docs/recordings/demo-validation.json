@@ -1,0 +1,29 @@
+{
+  "checks": [
+    "seed inicial: 10 tarefas",
+    "criacao confirmada com descricao",
+    "detalhes da tarefa criada",
+    "edicao persistida",
+    "detalhes atualizados",
+    "status completed",
+    "status pending",
+    "status completed",
+    "filtro concluidos",
+    "filtro pendentes",
+    "ordenacao crescente",
+    "tema persistido",
+    "retorno ao tema retro via palette",
+    "arquivo XLSX criado",
+    "XLSX inclui titulo e descricao",
+    "criacao cancelada",
+    "edicao cancelada",
+    "exclusao cancelada",
+    "exclusao confirmada",
+    "gate de qualidade",
+    "backup antes do seed",
+    "seed sem duplicacao",
+    "banco e exportacao preservados",
+    "sessao encerrou com sucesso",
+    "sem excecoes na TUI"
+  ]
+}

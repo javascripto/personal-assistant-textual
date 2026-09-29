@@ -14,17 +14,37 @@ apenas tarefas genéricas anonimizadas.
 
 ## Demonstração
 
+[![Assistir à demo do Personal Assistant no YouTube][demo-thumbnail]][demo-video]
+
+[Assista à demonstração com música no YouTube][demo-video]: criação e edição
+de tarefas, filtros, temas, exportação XLSX e workflow com Makefile.
+
+[demo-thumbnail]: https://img.youtube.com/vi/oBpKIKewbuo/maxresdefault.jpg
+[demo-video]: https://youtu.be/oBpKIKewbuo
+
 Há uma demonstração interativa em
 [`docs/recordings/personal-assistant-demo.cast`](docs/recordings/personal-assistant-demo.cast).
-Ela percorre os comandos do Makefile e as funções centrais da TUI em uma base
-temporária, sem modificar os dados locais. Para assisti-la:
+Ela explora primeiro a TUI e depois o Makefile, em uma base temporária.
+Criação, edição, status, exclusão, exportação e backup são verificados durante
+a captura. Para assisti-la:
 
 ```sh
 make play-demo
 ```
 
-O comando `make record-demo` recria a gravação quando `asciinema` e `expect`
-estiverem instalados. Veja as instruções completas em `docs/recordings/`.
+`make build-demo` gera uma nova captura validada e um vídeo MP4 1920×1080,
+30 fps, com capítulos e atalhos em português. O vídeo mostra a saída real da
+sessão de terminal, renderizada em pixels, sem narração ou trilha sonora.
+Não é uma filmagem da janela nativa do macOS.
+
+Para acrescentar uma trilha instrumental retrô discreta, execute
+`uv run python scripts/add_demo_music.py`. Isso gera uma cópia separada,
+`docs/recordings/personal-assistant-youtube-music.mp4`, com música sintetizada
+localmente e fades, preservando o MP4 silencioso e a captura Asciinema.
+
+São necessários `asciinema` e `ffmpeg`; as dependências Python da demo ficam
+no grupo opcional `demo` do `uv`. `make record-demo` continua disponível para
+gravação manual. Veja [o guia da demo](docs/recordings/README.md).
 
 ## Recursos
 
@@ -75,6 +95,7 @@ Quando o SQLite já existir, esse comando cria antes uma cópia consistente em
 | `n` | Criar tarefa |
 | `e` | Editar título, tag e descrição longa da tarefa selecionada |
 | `Enter` | Abrir detalhes da tarefa selecionada |
+| `Ctrl+Enter` | Confirmar criação ou edição a partir da descrição |
 | `e` nos detalhes | Abrir a edição da tarefa exibida |
 | `d` | Excluir a selecionada, pedindo confirmação |
 | `Space` | Alternar entre pendente e concluída |
@@ -129,6 +150,11 @@ atualizadas sem apagar tarefas ou configurações.
 | `make run` | Iniciar a TUI |
 | `make seed` | Fazer backup e inserir tarefas genéricas ausentes no banco |
 | `make clear` | Limpar apenas caches e relatórios gerados |
+| `make build-demo` | Gravar uma sessão validada e gerar o vídeo MP4 |
+| `make render-demo` | Renderizar o MP4 a partir da captura existente |
+| `make play-demo` | Reproduzir a captura no Asciinema |
+| `make record-demo` | Abrir uma captura manual de terminal |
+| `make demo-check` | Verificar tipagem estrita dos scripts da demo |
 
 O gate `make check` é obrigatório. Ele cobre persistência, migração de SQLite,
 exportação XLSX, atalhos, foco entre abas, preservação de seleção, detalhes,

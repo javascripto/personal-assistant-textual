@@ -5,8 +5,24 @@ organizadas por área de produto, não pela ordem em que foram implementadas.
 
 ## Não lançado
 
+### Demonstração da aplicação
+
+- README com thumbnail clicável para a demonstração com música no YouTube.
+- Captura real de terminal em Asciinema, com leitura contínua da saída e
+  verificações de SQLite, XLSX, backup e encerramento da sessão.
+- Roteiro explora a TUI antes dos comandos de desenvolvimento do Makefile.
+- Renderização MP4 1080p, 30 fps, com capítulos e indicação dos atalhos.
+- Versão opcional com trilha retrô sintetizada localmente, volume discreto e
+  fades; preserva a versão silenciosa e copia o vídeo sem recodificação.
+- Grupo opcional `demo`, comandos Make e ações de VS Code/Codex para gerar,
+  assistir e validar a demonstração.
+- Base temporária isolada; o roteiro só substitui a captura final após todas
+  as verificações passarem.
+
 ### Aplicação e fluxo de tarefas
 
+- Confirmação de criação e edição com `Ctrl+Enter` na descrição multilinha.
+- Atualização do relógio tolera a remoção do cabeçalho no encerramento da TUI.
 - Criada a TUI **Personal Assistant** com Python, Textual e SQLite.
 - Implementados filtros para todas, pendentes e concluídas.
 - Adicionada ordenação por data crescente ou decrescente, persistida entre

@@ -1,0 +1,92 @@
+[
+  {
+    "seconds": 2.43,
+    "title": "Personal Assistant",
+    "keys": "Python + Textual + SQLite"
+  },
+  {
+    "seconds": 5.84,
+    "title": "Sua lista, direto no terminal",
+    "keys": "Setas: navegar"
+  },
+  {
+    "seconds": 11.02,
+    "title": "Criar tarefa com descrição longa",
+    "keys": "N | Tab | Confirmar"
+  },
+  {
+    "seconds": 26.63,
+    "title": "Contexto e próximos passos",
+    "keys": "Enter: detalhes | Esc: voltar"
+  },
+  {
+    "seconds": 31.64,
+    "title": "Editar pelos detalhes",
+    "keys": "E | Tab | Confirmar"
+  },
+  {
+    "seconds": 47.38,
+    "title": "Concluir e reabrir sem perder a seleção",
+    "keys": "Space"
+  },
+  {
+    "seconds": 54.06,
+    "title": "Filtros por status",
+    "keys": "Tab | Setas | Tab"
+  },
+  {
+    "seconds": 65.91,
+    "title": "Ordenação por data",
+    "keys": "O: crescente / decrescente"
+  },
+  {
+    "seconds": 72.03,
+    "title": "Temas para toda a interface",
+    "keys": "T: próximo tema"
+  },
+  {
+    "seconds": 80.15,
+    "title": "Command palette",
+    "keys": "Ctrl+P | Select theme"
+  },
+  {
+    "seconds": 93.0,
+    "title": "Exportar todas as tarefas",
+    "keys": "X: planilha XLSX"
+  },
+  {
+    "seconds": 98.09,
+    "title": "Cancelar sem alterar dados",
+    "keys": "N | Esc; E | Esc"
+  },
+  {
+    "seconds": 106.49,
+    "title": "Excluir com confirmação",
+    "keys": "D | Cancelar / Excluir"
+  },
+  {
+    "seconds": 114.83,
+    "title": "Persistência entre execuções",
+    "keys": "Q | make run"
+  },
+  {
+    "seconds": 122.59,
+    "title": "Workflow de desenvolvimento",
+    "keys": "Makefile + uv"
+  },
+  {
+    "seconds": 145.72,
+    "title": "Seed idempotente com backup",
+    "keys": "make seed"
+  },
+  {
+    "seconds": 152.7,
+    "title": "Limpar caches e preservar dados",
+    "keys": "make clear"
+  },
+  {
+    "seconds": 165.52,
+    "title": "Personal Assistant",
+    "keys": "Tarefas locais. Fluxo por teclado."
+  }
+]

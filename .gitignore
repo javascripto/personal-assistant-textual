@@ -10,3 +10,5 @@ htmlcov/
 data/*.db
 exports/*.xlsx
 .DS_Store
+docs/recordings/*.mp4
+docs/recordings/preview-*.png
